@@ -912,7 +912,7 @@ engines:
     custom_rules: {}
   pmd:
 
-    disable_engine: true
+    disable_engine: false
 
     java_command: java
     rule_languages:
