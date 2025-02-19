@@ -1,5 +1,10 @@
 name: Run Code Analyzer5 Workflow
 on: workflow_dispatch
+inputs:
+  branch:
+    description: 'Config branch'
+    required: false
+    default: ''
 jobs:
   salesforce-code-analyzer-workflow:
     runs-on: ubuntu-latest
