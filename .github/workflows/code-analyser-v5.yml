@@ -22,7 +22,7 @@ jobs:
           ${{inputs.config-branch}} != ''
         uses: actions/checkout@v4
         with:
-          ref: origin/${{inputs.config-branch}}
+          ref: ${{inputs.config-branch}}
           sparse-checkout: |
             .github/workflows/code-analyser.yml
       
