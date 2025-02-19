@@ -17,6 +17,10 @@ jobs:
       - name: Check out files
         uses: actions/checkout@v4
 
+      - name: Checkout config file
+        if: ${{inputs.config-branch}} != ''
+        run: git checkout origin/${{inputs.config-branch}} .github/workflows/code-analyser.yml
+
       - name: Install Salesforce CLI
         run: npm install -g @salesforce/cli@latest
 
