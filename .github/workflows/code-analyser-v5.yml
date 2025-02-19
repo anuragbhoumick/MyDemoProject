@@ -18,8 +18,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Checkout config file
-        if: ${{inputs.config-branch}} != ''
-        run: git checkout origin/${{inputs.config-branch}} .github/workflows/code-analyser.yml
+        if: |
+          ${{inputs.config-branch}} != ''
+        uses: actions/checkout@v4
+        with:
+          ref: origin/${{inputs.config-branch}}
+          sparse-checkout: |
+            .github/workflows/code-analyser.yml
+      
+      - name: Show config.yml content
+        run: cat .github/workflows/code-analyser.yml | head
 
       - name: Install Salesforce CLI
         run: npm install -g @salesforce/cli@latest
