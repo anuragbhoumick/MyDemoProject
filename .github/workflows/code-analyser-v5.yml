@@ -17,6 +17,9 @@ jobs:
       - name: Check out files
         uses: actions/checkout@v4
 
+      - name: Show config branch value
+        run: echo ${{inputs.config-branch}}
+        
       - name: Checkout config file
         if: |
           ${{inputs.config-branch}} != ''
