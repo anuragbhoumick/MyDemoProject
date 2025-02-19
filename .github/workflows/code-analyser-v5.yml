@@ -28,6 +28,7 @@ jobs:
           ref: ${{inputs.config-branch}}
           sparse-checkout: |
             .github/workflows/config/code-analyzer-config.yml
+          sparse-checkout-cone-mode: false  
       
       - name: Show config.yml content
         run: cat .github/workflows/config/code-analyzer-config.yml | head
