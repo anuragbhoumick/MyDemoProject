@@ -21,7 +21,7 @@ jobs:
         id: run-code-analyzer
         uses: forcedotcom/run-code-analyzer@v2
         with:
-          run-arguments: --workspace . --output-file results.html
+          run-arguments: --workspace . --config-file .github/workflows/config/code-analyzer-config.yml --output-file results.html
           results-artifact-name: salesforce-code-analyzer-v5-results
 
       - name: Check the outputs to determinewhether to fail
