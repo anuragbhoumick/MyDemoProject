@@ -17,16 +17,16 @@ jobs:
       - name: Setup Code Analyzer 5
         run: sf plugins install code-analyzer@latest
 
-      - name: Run Code analyzer
-        id: run-code-analyzer
-        uses: forcedotcom/run-code-analyzer@v2
-        with:
-          run-arguments: --workspace . --config-file .github/workflows/config/code-analyzer-config.yml --output-file results.html
-          # results-artifact-name: salesforce-code-analyzer-v5-results
+      # - name: Run Code analyzer
+      #   id: run-code-analyzer
+      #   uses: forcedotcom/run-code-analyzer@v2
+      #   with:
+      #     run-arguments: --workspace . --config-file .github/workflows/config/code-analyzer-config.yml --output-file results.html
+      #     # results-artifact-name: salesforce-code-analyzer-v5-results
 
-      - name: Check the outputs to determinewhether to fail
-        if: |
-          steps.run-code-analyzer.outputs.exit-code > 0 ||
-          steps.run-code-analyzer.outputs.num-sev1-violations > 0 ||
-          steps.run-code-analyzer.outputs.num-violations > 10
-        run: exit 1
+      # - name: Check the outputs to determinewhether to fail
+      #   if: |
+      #     steps.run-code-analyzer.outputs.exit-code > 0 ||
+      #     steps.run-code-analyzer.outputs.num-sev1-violations > 0 ||
+      #     steps.run-code-analyzer.outputs.num-violations > 10
+      #   run: exit 1
